@@ -15,8 +15,8 @@ resource "aws_lambda_function" "handler" {
   environment {
     variables = {
       TABLE_NAME = aws_dynamodb_table.clients.name
-      API_URL    = "https://l523ek9dtk.execute-api.us-east-1.amazonaws.com/dev"
-      X_API_KEY  = "lOZcHZ2wGBz5VPRZpcfK6iUIFLsVlzB11jThN0b0"
+      API_URL    = "https://*.execute-api.us-east-1.amazonaws.com/dev" #add the pull url
+      X_API_KEY  = ""                                                  #replace with api key
     }
   }
   vpc_config {
