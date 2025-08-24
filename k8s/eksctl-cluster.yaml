@@ -1,0 +1,22 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: sre-eks-fargate
+  region: us-east-1
+  version: "1.29"
+
+iam:
+  withOIDC: true
+
+vpc:
+  nat:
+    gateway: Single
+
+fargateProfiles:
+  - name: kube-system
+    selectors:
+      - namespace: kube-system
+  - name: jenkins
+    selectors:
+      - namespace: ci
